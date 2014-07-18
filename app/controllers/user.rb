@@ -21,5 +21,11 @@ get '/user/logout' do
   redirect "/"
 end
 
+get '/user/results' do
+  @user = User.find(session[:user_id])
+  @rounds = Round.where(user_id: @user.id)
+  erb :history
+end
+
 
 
