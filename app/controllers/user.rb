@@ -1,5 +1,5 @@
 post '/user/new' do
-  user = User.create(params[:signup])
+  @user = User.create(params[:signup])
   redirect '/decks'
 end
 
