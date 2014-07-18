@@ -17,7 +17,8 @@ class CreateTables < ActiveRecord::Migration
   		t.references :round
   		t.references :card
   		t.boolean :correct, :default => false
-  	end
+  	  t.timestamps
+    end
   	
   	create_table :cards do |t|
   		t.references :deck
@@ -32,6 +33,7 @@ class CreateTables < ActiveRecord::Migration
   	create_table :decks do |t|
   		t.string :name
   		t.references :user
+      t.timestamps
   	end
   	
   end
