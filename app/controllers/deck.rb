@@ -1,8 +1,14 @@
 #shows all decks
-get '/decks' do
+get '/deck' do
   @decks = Deck.all
 
   erb :'deck/index'
+end
+
+#goes to create new deck form
+get '/deck/new' do
+
+  erb :'deck/new'
 end
 
 # show specific deck
@@ -12,16 +18,10 @@ get '/deck/:id' do
   erb :'deck/deck'
 end
 
-#goes to create new deck form
-get '/deck/new' do
-
-  erb :'deck/new'
-end
-
 #posts the new deck to database
 post '/deck' do
-  @deck = Deck.create(params[:deck])
-  redirect '/'
+  @deck = Deck.create(name: params[:name], user_id: session[:user_id])
+  redirect '/deck'
 end
 
 
