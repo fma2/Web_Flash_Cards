@@ -21,7 +21,7 @@ get '/card/new' do
   erb :'card/new'
 end
 
-post '/deck/:id/card/new' do
+post '/card/new' do
   @deck = "Deck Name"
   erb :'card/new'
 end
