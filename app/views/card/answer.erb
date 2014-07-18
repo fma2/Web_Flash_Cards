@@ -3,8 +3,9 @@
   <p><%= @deck %></p>
 
   <form action="/card/question" method="GET">
-    <p>Question belongs here...</p>
-    <p>Answer belongs here...</p>
+    <p><%= @card.question %></p>
+    <p><%= @card.answer %></p>
+    <p><%= @correct %></p>
     <input type="submit" value="Next">
   </form>
 </div>
