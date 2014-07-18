@@ -24,4 +24,9 @@ post '/deck' do
   redirect '/deck'
 end
 
-
+post '/deck/:id/round' do
+  @round = Round.create(user_id: session[:user_id])
+  session[:round_id] = @round.id
+  @deck = Deck.find(params[:id])
+  redirect "/deck/#{@deck.id}/card/#{@deck.cards.first.id}"
+end
