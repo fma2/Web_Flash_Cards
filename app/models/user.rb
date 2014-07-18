@@ -21,6 +21,5 @@ class User < ActiveRecord::Base
   		nil
   	end
   end
-  
-  # Remember to create a migration!
+
 end
