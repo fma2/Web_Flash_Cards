@@ -1,3 +1,7 @@
+# get '/deck/:id/card/:id' do
+
+# end
+
 get '/card/answer' do
   erb :'/card/answer'
 end
@@ -7,9 +11,9 @@ post '/card/answer' do
   redirect('/card/answer')
 end
 
-get '/card/question' do
-  @deck = "Deck Name"
-  @card = "Card"
+get '/deck/:deck_id/card/:card_id' do
+  @deck = Deck.find(params[:deck_id])
+  @cards = @deck.cards
   # Need logic to determine if there is a next question
   # Display result
   # or display next question
