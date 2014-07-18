@@ -18,6 +18,9 @@
   <title></title>
 </head>
 <body>
+  <% if current_user %>
+  <p class="login">Welcome, <%= current_user.name %> - <a href='/user/logout'>Log Out</a></p>
+  <% end %>
    <center><h1>Flashcards Game!</h1></center>
   <%= yield %>
 </body>
