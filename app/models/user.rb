@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	has_many :rounds
 	has_many :decks
 
+  # validates_uniqueness_of :email
+
 	include BCrypt #a module
 
   def password
@@ -21,6 +23,5 @@ class User < ActiveRecord::Base
   		nil
   	end
   end
-  
-  # Remember to create a migration!
+
 end
