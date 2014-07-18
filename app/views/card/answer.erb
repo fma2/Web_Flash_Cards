@@ -1,2 +1,11 @@
 <div class="container">
+  <h1>Quiz Answer</h1>
+  <p><%= @deck %></p>
+  <p><%= @card %></p>
+
+  <form action="/card/question" method="GET">
+    <p>Question belongs here...</p>
+    <p>Answer belongs here...</p>
+    <input type="submit" value="Next">
+  </form>
 </div>

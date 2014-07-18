@@ -2,14 +2,19 @@
   <h1>Create Card</h1>
   <p>Hello, world!</p>
 
-  <form >
-    <tr>
+  <form action="/card/new" method="POST">
     Deck Name <input type="text" name="<%= @deck %>"><br>
     Answer: <input type="text" name="card[answer]"><br>
     Question: <input type="text" name="card[question]"><br>
     Choice 1: <input type="text" name="card[choice1]"><br>
     Choice 2: <input type="text" name="card[choice2]"><br>
     Choice 3: <input type="text" name="card[choice3]"><br>
-    <button type="button">Submit</button>
+    <input type="submit" value="Create New Card">
+  </form><br>
+</div>
+
+<div class="container">
+  <form action="/card/new" method="POST">
+    <a href="/"><button type="button">I'm done</button><a><br>
   </form>
 </div>

@@ -1,2 +1,14 @@
 <div class="container">
+  <h1>Quiz Question</h1>
+  <p><%= @deck %></p>
+  <p><%= @card %></p>
+
+  <form action="/card/answer" method="post">
+    Question: <%= @card%> <br>
+    <input type="radio" name="card[choice]" value="choice1"><%= @card %><br>
+    <input type="radio" name="card[choice]" value="choice1"><%= @card %><br>
+    <input type="radio" name="card[choice]" value="choice1"><%= @card %><br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
 </div>

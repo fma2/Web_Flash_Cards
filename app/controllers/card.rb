@@ -1,14 +1,27 @@
-post '/deck/:id/card/:id' do #BUGBUG
+get '/card/answer' do
+  erb :'/card/answer'
 end
 
-get '/deck/:id/card/:id' do #BUGBUG
+post '/card/answer' do
+  # Add logic to return string correct answer or false and store resurl
+  redirect('/card/answer')
 end
 
-get '/deck/:id/card/:id/answer' do #BUGBUG
+get '/card/question' do
+  @deck = "Deck Name"
+  @card = "Card"
+  # Need logic to determine if there is a next question
+  # Display result
+  # or display next question
+  erb :'card/question'
 end
 
-get '/card/new' do #BUGBUG
-  @deck = "hello"
+get '/card/new' do
+  @deck = "Deck Name"
+  erb :'card/new'
+end
 
-  erb :'card/card_new'
+post '/deck/:id/card/new' do
+  @deck = "Deck Name"
+  erb :'card/new'
 end
