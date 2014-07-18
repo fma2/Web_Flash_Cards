@@ -6,7 +6,7 @@ end
 
 post '/user' do
   @user = User.authenticate(params[:user][:email], params[:user][:password])
-  if user
+  if @user
     session[:user_id] = @user.id
     redirect to "/deck"
   else
