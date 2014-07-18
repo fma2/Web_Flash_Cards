@@ -1,2 +1,12 @@
 <div class="container">
+  <h1>Welcome to Flash Cards</h1>
+  <p>Here is a list of all the decks</p>
+  <ul>
+    <% @decks.each do |deck| %>
+      <li><a href="/deck/<%= deck.id %>"><%= deck.name %></li>
+    <% end %>
+  </ul>
+  <form action="/deck/new" method="get">
+    <input type="submit" value="Create New Deck">
+  </form>
 </div>
