@@ -23,6 +23,7 @@ end
 us_capitals = load_flashcards('db/fixtures/us-capitals.txt')
 world_capitals = load_flashcards('db/fixtures/world-capitals.txt')
 ruby_terms = load_flashcards('db/fixtures/ruby-terms.txt')
+dbc_students = load_flashcards('db/fixtures/students-cohorts.txt')
 
 user1 = User.create(name: "Farheen", email: "f@gmail.com", password: "cake")
 user2 = User.create(name: "David", email: "d@gmail.com", password: "cake")
@@ -47,7 +48,11 @@ ruby_terms.each_with_index do |x, index|
 end
 
 
-
+deck4 = Deck.create(name: "DBC Student-Cohort", user_id: user1.id)
+dbc_students.each_with_index do |x, index|
+	cohorts = %w(Crab Peeper Cicada Woodchuck Caterpillar Nighthawk Admiral Dragonfly Grasshopper Gopher Skipper)
+	deck4.cards << Card.create(question: x[0], choice1: cohorts.sample, choice2: cohorts.sample, choice3: cohorts.sample, answer: x[1])
+end
 
 # Card.create(question: Faker::Company.name, choice1: Faker::Company.catch_phrase, choice2: Faker::Company.bs, choice3: Faker::Company.bs, answer: rand(1..3))
 
