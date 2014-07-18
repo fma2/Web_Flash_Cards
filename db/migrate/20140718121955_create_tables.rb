@@ -10,6 +10,7 @@ class CreateTables < ActiveRecord::Migration
   	create_table :rounds do |t|
   		t.references :user
   		t.timestamps
+  		
   	end
   	
   	create_table :guesses do |t|
