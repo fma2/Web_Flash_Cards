@@ -7,3 +7,15 @@
 th {
   text-align: left;
 }
+
+.login {
+	width: 600px;
+	text-align: right;
+	margin: 20px auto;
+}
+
+td {
+	border: solid 1px black;
+	width: 150px;
+	text-align: center;
+}

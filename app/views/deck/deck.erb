@@ -4,6 +4,6 @@
     THIS SHIT GONNA BE MAD HARD BRUH<br><br>
 
 
-  <form action="/deck/:id/card/:id" method="GET">
+  <form action="/deck/<%= @deck.id %>/card/<%= @deck.cards.first.id %>" method="GET">
   <input type="submit" value="Start">
 </div>

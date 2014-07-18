@@ -1,2 +1,23 @@
 <div class="container">
+	<h1><%= @user.name %>'s Results</h1>
+	<table>
+		<tr>
+			<td>Round</td>
+			<td>Deck Name</td>
+			<td># Correct</td>
+			<td>Percentage</td>
+		</tr>
+		<% @rounds.each_with_index do |round, index| %>
+		<tr>
+			<td><%= index %></td>
+			<td><%= Deck.find(round.deck_id).name %></td>
+			<% correct = Guess.where(round_id: round.deck_id, correct: true).length %>
+			<% num_cards = Deck.find(round.deck_id).cards.length %>
+			<td><%= correct %> / <%= num_cards %></td>
+			<td><%= percetage(correct, num_cards) %></td>
+		</tr>
+		<% end %>
+	</table><br><br>
+		<input type="submit" value="Play Again">
+	</form>
 </div>

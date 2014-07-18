@@ -1,13 +1,14 @@
 post '/user/new' do
-  @user = User.create(params[:signup])
-  redirect '/decks'
+  @user = User.create(params[:user])
+  session[:user_id] = @user.id
+  redirect '/deck'
 end
 
 post '/user' do
-  user = User.authenticate(params[:login][:email], params[:login][:password])
-  if user
-    session[:user_id] = user.id
-    redirect to "/decks"
+  @user = User.authenticate(params[:user][:email], params[:user][:password])
+  if @user
+    session[:user_id] = @user.id
+    redirect to "/deck"
   else
     @errors = "couldn't log you in"
     redirect '/'
@@ -20,8 +21,11 @@ get '/user/logout' do
   redirect "/"
 end
 
-get '/decks' do
-  erb :'deck/index.erb'
+get '/user/results' do
+  @user = User.find(session[:user_id])
+  @rounds = Round.where(user_id: @user.id)
+  erb :history
 end
+
 
 
