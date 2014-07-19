@@ -38,4 +38,3 @@ get '/deck/:deck_id/card/:card_id' do
   @choices.shuffle!
   erb :'card/question'
 end
-

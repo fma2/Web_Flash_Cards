@@ -1,8 +1,4 @@
 <div class="container">
-  <h1>Quiz Answer</h1>
-  <h3><%= @deck.name %></h3>
-  <p>Question: <%= @card.question %></p>
-  <p>Answer: <%= @card.answer %></p>
   <p>Your Guess! <%= @correct %></p>
 
   <form action="/deck/<%= @deck.id %>/card/<%= @deck.cards.shuffle.first.id %>" method="GET">
