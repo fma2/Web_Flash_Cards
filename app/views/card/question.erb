@@ -4,7 +4,6 @@
 
   <form action="/deck/<%=@deck.id%>/card/<%=@card.id%>/answer" method="post">
 
-    1 of <%= @deck.cards.size%><br>
     Question: <%= @card.question %><br>
     <% @choices.each do |choice| %>
       <input type="radio" name="card[choice]" value="<%= choice %>"><%= choice %><br>

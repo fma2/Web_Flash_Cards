@@ -1,5 +1,19 @@
+# CREATE NEW CARD
+get '/deck/:deck_id/card/new' do
+  @deck = Deck.find(params[:deck_id])
+  erb :'card/new'
+end
+
+post '/deck/:deck_id/card' do
+  @deck = Deck.find(params[:deck_id])
+  @deck.cards << Card.create(params[:card])
+  redirect "/deck/#{@deck.id}/card/new"
+end
+
+# GET/POST ANSWERS
 get '/deck/:deck_id/card/:card_id/answer/:correct' do
   @card = Card.find(params[:card_id])
+  @deck = @card.deck
   @correct = params[:correct]
   # @correct = params[:correct]
   erb :'/card/answer'
@@ -14,6 +28,7 @@ post '/deck/:deck_id/card/:card_id/answer' do
   redirect("/deck/#{@card.deck_id}/card/#{@card.id}/answer/#{@correct}")
 end
 
+# GO TO NEXT CARD
 get '/deck/:deck_id/card/:card_id' do
   @deck = Deck.find(params[:deck_id])
   @card = Card.find(params[:card_id])
@@ -21,18 +36,6 @@ get '/deck/:deck_id/card/:card_id' do
   @choices = []
   @choices << @card.choice1 << @card.choice2 << @card.choice3 << @card.answer
   @choices.shuffle!
-  # Need logic to determine if there is a next question
-  # Display result
-  # or display next question
   erb :'card/question'
 end
 
-get '/card/new' do
-  @deck = "Deck Name"
-  erb :'card/new'
-end
-
-post '/card/new' do
-  @deck = "Deck Name"
-  erb :'card/new'
-end

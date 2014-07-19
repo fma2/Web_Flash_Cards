@@ -1,11 +1,14 @@
 <div class="container">
   <h1>Quiz Answer</h1>
-  <p><%= @deck %></p>
+  <h3><%= @deck.name %></h3>
+  <p>Question: <%= @card.question %></p>
+  <p>Answer: <%= @card.answer %></p>
+  <p>Your Guess! <%= @correct %></p>
 
-  <form action="/card/question" method="GET">
-    <p><%= @card.question %></p>
-    <p><%= @card.answer %></p>
-    <p><%= @correct %></p>
+  <form action="/deck/<%= @deck.id %>/card/<%= @deck.cards.shuffle.first.id %>" method="GET">
     <input type="submit" value="Next">
+  </form><br>
+  <form action="/user/results" method="GET">
+    <input type="submit" value="End Quiz">
   </form>
 </div>

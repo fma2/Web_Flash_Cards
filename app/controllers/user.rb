@@ -24,6 +24,7 @@ end
 get '/user/results' do
   @user = User.find(session[:user_id])
   @rounds = Round.where(user_id: @user.id)
+  session[:round_id] = nil
   erb :history
 end
 
