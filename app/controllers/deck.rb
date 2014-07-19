@@ -21,12 +21,12 @@ end
 #posts the new deck to database
 post '/deck' do
   @deck = Deck.create(name: params[:name], user_id: session[:user_id])
-  redirect '/deck'
+  redirect "/deck/#{@deck.id}/card/new"
 end
 
 post '/deck/:id/round' do
   @round = Round.create(user_id: session[:user_id])
   session[:round_id] = @round.id
   @deck = Deck.find(params[:id])
-  redirect "/deck/#{@deck.id}/card/#{@deck.cards.first.id}"
+  redirect "/deck/#{@deck.id}/card/#{@deck.cards.shuffle.first.id}"
 end

@@ -10,16 +10,16 @@ class CreateTables < ActiveRecord::Migration
   	create_table :rounds do |t|
   		t.references :user
   		t.timestamps
-  		
+
   	end
-  	
+
   	create_table :guesses do |t|
   		t.references :round
   		t.references :card
   		t.boolean :correct, :default => false
   	  t.timestamps
     end
-  	
+
   	create_table :cards do |t|
   		t.references :deck
   		t.string :question
@@ -29,12 +29,12 @@ class CreateTables < ActiveRecord::Migration
   		t.string :answer
   		t.timestamps
   	end
-  	
+
   	create_table :decks do |t|
   		t.string :name
   		t.references :user
       t.timestamps
   	end
-  	
+
   end
 end

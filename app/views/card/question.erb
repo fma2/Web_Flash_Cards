@@ -2,10 +2,18 @@
   <h1>Quiz Question</h1>
   <p><%= @deck.name %></p>
 
-  <form action="/deck/<%=@deck.id%>/card/<%=@card.id%>/answer" method="post">
+  <section class="flashcard">
+    <div id="card1" class="card">
+      <figure class="front">
+        <%= @card.question %>
+      </figure>
+      <figure class="back">
+        <%= @card.answer %>
+      </figure>
+    </div>
+  </section>
 
-    1 of <%= @deck.cards.size%><br>
-    Question: <%= @card.question %><br>
+  <form action="/deck/<%=@deck.id%>/card/<%=@card.id%>/answer" method="post">
     <% @choices.each do |choice| %>
       <input type="radio" name="card[choice]" value="<%= choice %>"><%= choice %><br>
     <% end %>
@@ -13,3 +21,4 @@
     <input type="submit" value="Submit">
   </form>
 </div>
+</body>
