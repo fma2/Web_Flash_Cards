@@ -9,6 +9,9 @@ body {
   font-family: 'Arimo', sans-serif;
 }
 
+.tab {
+  padding-left: 25px;
+}
 .container {
   margin: 20px auto;
   width: 650px;

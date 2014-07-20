@@ -24,6 +24,24 @@ $(document).ready(function() {
       });
     });
 
+    $('#new_card').submit(function(event){
+      event.preventDefault();
+      console.log("this works")
+      $.ajax({
+        type: "POST",
+        url: $(this).attr('action'),
+        data: $(this).serialize()
+        // dataType: "json"
+      }).success(function(response){
+        console.log(response)
+        $('#new_questions').empty()
+        $('#new_questions').html(response)
+      }).complete(function(){
+        $('#new_card').each (function(){
+          this.reset();
+        })
+      })
+    })
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });

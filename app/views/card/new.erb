@@ -2,7 +2,7 @@
   <h1>Create Card</h1>
   <h3>Deck Name: <%= @deck.name %></h3>
 
-  <form action="/deck/<%= @deck.id %>/card" method="POST">
+  <form id="new_card" action="/deck/<%= @deck.id %>/card" method="POST">
     Question: <input type="text" size="35" name="card[question]"><br>
     Choice 1: <input type="text" size="35" name="card[choice1]"><br>
     Choice 2: <input type="text" size="35" name="card[choice2]"><br>
@@ -12,5 +12,8 @@
   </form>
   <form action="/deck" method="get">
     <input type="submit" value="Finish Deck">
-  </form>
+  </form><br><br>
+
+  <h3>Questions</h3>
+  <div id="new_questions"></div>
 </div>
