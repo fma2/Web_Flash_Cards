@@ -1,7 +1,11 @@
 post '/user/new' do
-  @user = User.create(params[:user])
-  session[:user_id] = @user.id
-  redirect '/deck'
+  @user = User.new(params[:user])
+  if @user.save
+    session[:user_id] = @user.id
+    redirect '/deck'
+  else
+    erb :index
+  end
 end
 
 post '/user' do
@@ -27,6 +31,5 @@ get '/user/results' do
   session[:round_id] = nil
   erb :history
 end
-
 
 

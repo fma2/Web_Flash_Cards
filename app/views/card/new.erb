@@ -3,11 +3,11 @@
   <h3><%= @deck.name %></h3>
 
   <form action="/deck/<%= @deck.id %>/card" method="POST">
-    Question: <input type="text" name="card[question]"><br>
-    Choice 1: <input type="text" name="card[choice1]"><br>
-    Choice 2: <input type="text" name="card[choice2]"><br>
-    Choice 3: <input type="text" name="card[choice3]"><br>
-    Choice 4 (Answer): <input type="text" name="card[answer]"><br>
+    Question: <input type="text" size="35" name="card[question]"><br>
+    Choice 1: <input type="text" size="35" name="card[choice1]"><br>
+    Choice 2: <input type="text" size="35" name="card[choice2]"><br>
+    Choice 3: <input type="text" size="35" name="card[choice3]"><br>
+    Choice 4 (Answer):  <input type="text" size="27"name="card[answer]"><br>
     <input type="submit" value="Create New Card">
   </form><br>
 </div>
