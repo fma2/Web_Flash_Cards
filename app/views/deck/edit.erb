@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Edit Deck</h1>
+  <form action='/deck/<%= @deck.id %>' method="post">
+    <input type="hidden" name="_method" value="patch">
+    Deck Name: <input type="text" name="deck[name]" value="<%= @deck.name %>">
+    <input type="submit" value="Edit Deck Name">
+  </form><br><br><br>
+
+  <h3>Questions</h3>
+  <%= erb :'card/_question' %>
+</div>

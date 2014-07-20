@@ -1,0 +1,7 @@
+  <% @cards.each_with_index do |card, index| %>
+  <%= (index+1).to_s+". " + card.question %><br>
+  <span class="tab"><%= "a. " + card.choice1 %></span><br>
+  <span class="tab"><%= "b. " + card.choice2 %></span><br>
+  <span class="tab"><%= "c. " + card.choice3 %></span><br>
+  <span class="tab"><%= "d. " + card.answer %></span><br><br>
+  <% end %>

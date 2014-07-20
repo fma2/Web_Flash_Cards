@@ -15,7 +15,7 @@
 
   <form action="/deck/<%=@deck.id%>/card/<%=@card.id%>/answer" method="post">
     <% @choices.each do |choice| %>
-      <input type="radio" name="card[choice]" value="<%= choice %>"><%= choice %><br>
+    <input type="radio" name="card[choice]" value="<%= choice %>"><%= choice %><br><br>
     <% end %>
     <br>
     <input id="submit_answer" type="submit" value="Submit">
@@ -23,7 +23,7 @@
 
   <form class="hidden" action="/deck/<%= @deck.id %>/card/<%= @deck.cards.shuffle.first.id %>" method="GET">
     <input type="submit" value="Next Question">
-  </form><br>
+  </form>
   <form class="hidden" action="/user/results" method="GET">
     <input type="submit" value="End Quiz">
   </form>

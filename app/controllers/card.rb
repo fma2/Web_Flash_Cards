@@ -1,13 +1,16 @@
 # CREATE NEW CARD
 get '/deck/:deck_id/card/new' do
   @deck = Deck.find(params[:deck_id])
+  @cards = @deck.cards
   erb :'card/new'
 end
 
 post '/deck/:deck_id/card' do
   @deck = Deck.find(params[:deck_id])
-  @deck.cards << Card.create(params[:card])
-  redirect "/deck/#{@deck.id}/card/new"
+  @cards = @deck.cards
+  @cards << Card.create(params[:card])
+  # redirect "/deck/#{@deck.id}/card/new"
+  erb :'card/_question', :layout => false
 end
 
 # GET/POST ANSWERS

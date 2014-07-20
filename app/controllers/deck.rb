@@ -30,3 +30,24 @@ post '/deck/:id/round' do
   @deck = Deck.find(params[:id])
   redirect "/deck/#{@deck.id}/card/#{@deck.cards.shuffle.first.id}"
 end
+
+# delete deck
+delete '/deck/:id' do
+  @deck = Deck.find(params[:id])
+  @deck.destroy
+
+  redirect '/deck'
+end
+
+# edit deck
+get '/deck/:id/edit' do
+  @deck = Deck.find(params[:id])
+  @cards = @deck.cards
+  erb :'deck/edit'
+end
+
+patch '/deck/:id' do
+  @deck = Deck.find(params[:id])
+  @deck.update(params[:deck])
+  redirect "/deck/#{@deck.id}"
+end
