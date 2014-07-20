@@ -1,7 +1,9 @@
 <div class="container">
   <h1>Create Card</h1>
+  <% if @card %>
+      <%= erb :model_errors, :locals => { :model => @card } %>
+    <% end %>
   <h3>Deck Name: <%= @deck.name %></h3>
-
   <form id="new_card" action="/deck/<%= @deck.id %>/card" method="POST">
     Question: <input type="text" size="35" name="card[question]"><br>
     Choice 1: <input type="text" size="35" name="card[choice1]"><br>
