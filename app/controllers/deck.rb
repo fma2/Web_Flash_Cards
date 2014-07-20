@@ -21,7 +21,11 @@ end
 #posts the new deck to database
 post '/deck' do
   @deck = Deck.create(name: params[:name], user_id: session[:user_id])
-  redirect "/deck/#{@deck.id}/card/new"
+  if @deck.save
+    redirect "/deck/#{@deck.id}/card/new"
+  else
+    erb :'deck/new'
+  end
 end
 
 post '/deck/:id/round' do
