@@ -1,5 +1,8 @@
 <div class="container">
   <h3>Signup</h3>
+  <% if @user %>
+    <%= erb :model_errors, :locals => { :model => @user } %>
+  <% end %>
   <form action="/user/new" method="post">
   Name:
   <br>
@@ -15,6 +18,9 @@
   </form>
   <br>
   <br>
+
+<!-- p -->
+
 
   <h3>Login</h3>
   <form action="/user" method="post">

@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 	has_many :rounds
 	has_many :decks
 
-  # validates_uniqueness_of :email
+  validates :email, :password, :name, presence: true
+  validates_uniqueness_of :email, :message => "address already exists.  Try again."
 
 	include BCrypt #a module
 
