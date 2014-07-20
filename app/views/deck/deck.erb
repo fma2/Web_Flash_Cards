@@ -6,7 +6,15 @@
 
   <form action="/deck/<%= @deck.id %>/round" method="POST">
     <input type="submit" value="Start">
+  </form><br><br><br>
+
+  <% if @deck.user_id == session[:user_id] %>
+
+  <form action="/deck/<%= @deck.id %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Deck">
   </form>
+  <% end %>
 
 
 
