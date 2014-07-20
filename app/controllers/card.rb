@@ -8,9 +8,15 @@ end
 post '/deck/:deck_id/card' do
   @deck = Deck.find(params[:deck_id])
   @cards = @deck.cards
-  @cards << Card.create(params[:card])
-  # redirect "/deck/#{@deck.id}/card/new"
-  erb :'card/_question', :layout => false
+  @card = Card.create(params[:card])
+  if @card.save
+    @cards << @card
+    erb :'card/_question', :layout => false
+  else
+    if @card
+      erb :model_errors, :locals => { :model => @card }, :layout => false
+    end
+  end
 end
 
 # GET/POST ANSWERS
