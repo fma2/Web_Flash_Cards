@@ -38,3 +38,16 @@ delete '/deck/:id' do
 
   redirect '/deck'
 end
+
+# edit deck
+get '/deck/:id/edit' do
+  @deck = Deck.find(params[:id])
+  @cards = @deck.cards
+  erb :'deck/edit'
+end
+
+patch '/deck/:id' do
+  @deck = Deck.find(params[:id])
+  @deck.update(params[:deck])
+  redirect "/deck/#{@deck.id}"
+end

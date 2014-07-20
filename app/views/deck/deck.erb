@@ -9,7 +9,9 @@
   </form><br><br><br>
 
   <% if @deck.user_id == session[:user_id] %>
-
+  <form action="/deck/<%= @deck.id %>/edit" method="get">
+    <input type="submit" value="Edit Deck">
+  </form>
   <form action="/deck/<%= @deck.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Deck">
