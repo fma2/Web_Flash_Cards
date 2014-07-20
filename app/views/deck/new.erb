@@ -1,13 +1,11 @@
 <div class="container">
   <p> Create a New Deck <p>
-
-
-
-
-<form action="/deck" method="post">
-  Deck Title:
-  <input type="text" name="name">
-  <input type="submit" value="Create New Deck">
-</form>
-
+	<% if @deck %>
+    <%= erb :model_errors, :locals => { :model => @deck } %>
+  <% end %>
+	<form action="/deck" method="post">
+	  Deck Title:
+	  <input type="text" name="name">
+	  <input type="submit" value="Create New Deck">
+	</form>
 </div>
