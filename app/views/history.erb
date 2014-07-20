@@ -10,7 +10,7 @@
 		<% @rounds.each_with_index do |round, index| %>
 		<tr>
 			<td><%= index+1 %></td>
-			<td><%= Deck.find(Card.find(Guess.find_by(round_id: 1).card_id).deck_id).name %></td>
+			<td><%= Deck.find(Card.find(Guess.find_by(round_id: round.id).card_id).deck_id).name %></td>
 			<% correct = Guess.where(round_id: round.id, correct: true).length %>
 			<% num_cards = Guess.where(round_id: round.id).length %>
 			<td><%= correct %> / <%= num_cards %></td>

@@ -1,5 +1,6 @@
-.hidden {
-  display: none;
+form {
+  display: inline;
+  margin: 5px;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
 
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 650px;
   padding: 0px 20px 20px 20px;
   border: 1px solid white;
   background: #fff;
@@ -28,8 +29,9 @@ th {
 
 td {
 	border: solid 1px black;
-	width: 150px;
+	width: 160px;
 	text-align: center;
+  padding: 2px;
 }
 
 a {
@@ -129,7 +131,7 @@ footer p {
 }
 
 .card .back {
-  background: #325987;
+  background: black;
   -webkit-transform: rotateY( 180deg );
      -moz-transform: rotateY( 180deg );
        -o-transform: rotateY( 180deg );

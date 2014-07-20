@@ -2,8 +2,7 @@ $(document).ready(function() {
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
   // when we try to bind to them
-
-  $( function() {
+    $('.hidden').hide();
 
     $('#submit_answer').click( function( event ) {
       event.preventDefault();
@@ -17,7 +16,7 @@ $(document).ready(function() {
         data: data,
         dataType: "json"
       }).done(function(response){
-        $('.answer').append(response.correct);
+        $('#answer').append(response.correct);
         $('.back').css("background-color", response.color);
         $('.hidden').show();
       }).fail(function(response){
@@ -25,7 +24,6 @@ $(document).ready(function() {
       });
     });
 
-  });
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });
