@@ -48,3 +48,18 @@ get '/deck/:deck_id/card/:card_id' do
   @choices.shuffle!
   erb :'card/question'
 end
+
+# EDIT CARD
+get '/deck/:deck_id/card/:card_id/edit' do
+  @deck = Deck.find(params[:deck_id])
+  @card = Card.find(params[:card_id])
+
+  erb :'card/edit'
+end
+
+patch '/deck/:deck_id/card/:card_id' do
+  @deck = Deck.find(params[:deck_id])
+  @card = Card.find(params[:card_id])
+  @card.update(params[:card])
+  redirect "/deck/#{@deck.id}/edit"
+end

@@ -42,7 +42,7 @@ end
 # edit deck
 get '/deck/:id/edit' do
   @deck = Deck.find(params[:id])
-  @cards = @deck.cards
+  @cards = @deck.cards.order('id')
   erb :'deck/edit'
 end
 

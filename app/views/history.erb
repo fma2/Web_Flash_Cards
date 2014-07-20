@@ -8,6 +8,7 @@
 			<td>Percentage</td>
 		</tr>
 		<% @rounds.each_with_index do |round, index| %>
+		<% if !round.guesses.empty? %>
 		<tr>
 			<td><%= index+1 %></td>
 			<td><%= Deck.find(Card.find(Guess.find_by(round_id: round.id).card_id).deck_id).name %></td>
@@ -16,6 +17,7 @@
 			<td><%= correct %> / <%= num_cards %></td>
 			<td><%= percentage(correct, num_cards) %></td>
 		</tr>
+		<% end %>
 		<% end %>
 	</table><br><br>
 	<form action="/deck" method="get">
