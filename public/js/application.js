@@ -5,8 +5,24 @@ $(document).ready(function() {
 
   $( function() {
 
-    $('.card').click( function( event ) {
-      $( event.currentTarget ).toggleClass('flipped');
+    $('#submit_answer').click( function( event ) {
+      event.preventDefault();
+      $( ".card" ).toggleClass('flipped');
+      $(this).hide();
+      var data = $(this).parent().serialize()
+      var location = $(this).parent().attr('action');
+      $.ajax({
+        type: "POST",
+        url: location,
+        data: data,
+        dataType: "json"
+      }).done(function(response){
+        $('.answer').append(response.correct);
+        $('.back').css("background-color", response.color);
+        $('.hidden').show();
+      }).fail(function(response){
+        console.log("fail");
+      });
     });
 
   });

@@ -21,11 +21,18 @@ end
 
 post '/deck/:deck_id/card/:card_id/answer' do
   # Add logic to return string correct answer or false and store result
+  content_type :json
   @card = Card.find(params[:card_id])
-  @correct = @params[:card][:choice] == @card.answer
-  session[:round_id]
+    if params[:card][:choice] == @card.answer
+      @correct = true
+      @color = "green"
+    else
+      @correct = false
+      @color = "red"
+      print "false"
+    end
   Guess.create(round_id: session[:round_id], card_id: params[:card_id], correct: @correct)
-  redirect("/deck/#{@card.deck_id}/card/#{@card.id}/answer/#{@correct}")
+  {correct: @correct, color: @color}.to_json
 end
 
 # GO TO NEXT CARD

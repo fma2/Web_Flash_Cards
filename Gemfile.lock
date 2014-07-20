@@ -74,6 +74,7 @@ DEPENDENCIES
   activesupport (~> 4.1)
   bcrypt-ruby
   faker
+  json
   pg
   rake
   rspec
