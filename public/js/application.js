@@ -43,6 +43,12 @@ $(document).ready(function() {
       })
     })
 
+    $('.edit_card_button').click( function(event){
+      event.preventDefault();
+      $(this).hide();
+      $(this).next().show();
+    })
+
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });
 

@@ -7,5 +7,23 @@
   </form><br><br><br>
 
   <h3>Questions</h3>
-  <%= erb :'card/_question' %>
+  <% @cards.each_with_index do |card, index| %>
+    <%= (index+1).to_s+". " + card.question %><br>
+    <span class="tab"><%= "a. " + card.choice1 %></span><br>
+    <span class="tab"><%= "b. " + card.choice2 %></span><br>
+    <span class="tab"><%= "c. " + card.choice3 %></span><br>
+    <span class="tab"><%= "d. " + card.answer %></span><br><br>
+    <form class="edit_card_button" action="/deck/<%= @deck.id %>/card/<%= card.id %>/edit" method="get">
+      <input type="submit" value="Edit Card">
+    </form>
+    <form class="hidden" action="/deck/<%= @deck.id %>/card/<%= card.id %>" method="POST">
+      <input type="hidden" name="_method" value="patch"
+      Question: <input type="text" size="35" name="card[question]" value="<%= card.question %>"><br>
+      Choice 1: <input type="text" size="35" name="card[choice1]" value="<%= card.choice1 %>"><br>
+      Choice 2: <input type="text" size="35" name="card[choice2]" value="<%= card.choice2 %>"><br>
+      Choice 3: <input type="text" size="35" name="card[choice3]" value="<%= card.choice3 %>"><br>
+      Choice 4 (Answer): <input type="text"  size="28" name="card[answer]" value="<%= card.answer %>"><br><br>
+      <input type="submit" value="Submit Card">
+    </form><br><br><br>
+  <% end %>
 </div>

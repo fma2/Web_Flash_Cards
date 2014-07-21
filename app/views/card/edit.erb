@@ -1,0 +1,8 @@
+  <form id="edit_card_form" action="/deck/<%= @deck.id %>/card/<%= @card.id %>" method="POST">
+    Question: <input type="text" size="35" name="card[question]" value="<%= @card.question %>"><br>
+    Choice 1: <input type="text" size="35" name="card[choice1]" value="<%= @card.choice1 %>"><br>
+    Choice 2: <input type="text" size="35" name="card[choice2]" value="<%= @card.choice2 %>"><br>
+    Choice 3: <input type="text" size="35" name="card[choice3]" value="<%= @card.choice3 %>"><br>
+    Choice 4 (Answer): <input type="text"  size="28" name="card[answer]" value="<%= @card.answer %>"><br><br>
+    <input type="submit" value="Submit Card">
+  </form>
