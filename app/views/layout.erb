@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -20,13 +20,9 @@
 </head>
 <body>
   <% if current_user %>
-  <p class="login">Welcome, <%= current_user.name %> - <a href='/deck'>Home</a> - <a href='/user/logout'>Log Out</a></p>
+  <p class="login">Welcome, <%= current_user.name %>! - <a href='/deck'>Home</a> - <a href='/user/logout'>Log Out</a></p>
   <% end %>
-   <center><h1>Flashcards Game!</h1></center>
+   <center><h1>Flash Cards</h1></center>
   <%= yield %>
 </body>
-
-<footer>
-    <p>Make Beautiful &amp; Meaningful Things</p>
-</footer>
 </html>

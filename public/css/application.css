@@ -4,9 +4,9 @@ form {
 }
 
 body {
-  background: white;
-  color: #325987;
-  font-family: 'Arimo', sans-serif;
+  background: #efefef;
+  color: #111;
+  font-family: 'Lato', sans-serif;
 }
 
 .tab {
@@ -15,9 +15,10 @@ body {
 .container {
   margin: 20px auto;
   width: 650px;
-  padding: 0px 20px 20px 20px;
+  padding: 50px 50px 50px 50px;
   border: 1px solid white;
-  background: #fff;
+  background: white;
+  box-shadow: 10px 10px 0px rgba(0,0,0,.05);
 }
 
 th {
@@ -38,7 +39,7 @@ td {
 }
 
 a {
-  color: #d96413;
+  color: #eb6056;
 }
 
 a:link {
@@ -59,21 +60,6 @@ a:active {
 
 ul {
  list-style-type: none;
-}
-
-footer {
-    background-color: #222;
-    height: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 60px 0 100px;
-}
-
-footer p {
-    text-align: center;
-    color: #fff;
-    text-transform: uppercase;
-    font-family:'Montserrat', sans-serif;
 }
 
 .flashcard {
@@ -130,11 +116,11 @@ footer p {
 }
 
 .card .front {
-  background: black;
+  background: #F3D166;
 }
 
 .card .back {
-  background: black;
+  background: #efefef;
   -webkit-transform: rotateY( 180deg );
      -moz-transform: rotateY( 180deg );
        -o-transform: rotateY( 180deg );
