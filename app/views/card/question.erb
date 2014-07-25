@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Quiz Question</h1>
-  <p><%= @deck.name %></p>
-
+  <h1>Category</h1>
+  <h3><%= @deck.name %></h3>
+  <br>
   <section class="flashcard">
     <div id="card1" class="card">
       <figure class="front">
@@ -15,7 +15,7 @@
 
   <form action="/deck/<%=@deck.id%>/card/<%=@card.id%>/answer" method="post">
     <% @choices.each do |choice| %>
-    <input type="radio" name="card[choice]" value="<%= choice %>"><%= choice %><br><br>
+    <input type="radio" name="card[choice]" value="<%= choice %>"> <%= choice %><br><br>
     <% end %>
     <br>
     <input id="submit_answer" type="submit" value="Submit">
