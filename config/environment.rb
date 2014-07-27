@@ -16,12 +16,12 @@ require 'active_record'
 require 'logger'
 
 require 'sinatra'
-require "sinatra/reloader" if development?
+# require "sinatra/reloader" if development?
 
 require 'erb'
 
 require 'bcrypt'
-enable :sessions
+# enable :sessions
 
 require 'json'
 
