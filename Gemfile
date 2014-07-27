@@ -25,7 +25,7 @@ gem 'rspec'
 gem 'faker'
 
 group :test do
-  gem 'faker'
+  # gem 'faker'
   # gem 'rspec'
 end
 
