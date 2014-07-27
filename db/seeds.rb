@@ -1,4 +1,3 @@
-require 'faker'
 
 def load_flashcards(txt)
 	all_flashcards =[]

@@ -22,10 +22,11 @@ gem 'shotgun'
 
 gem 'rspec'
 
+gem 'faker'
 
 group :test do
   gem 'faker'
-  gem 'rspec'
+  # gem 'rspec'
 end
 
 gem "json"
